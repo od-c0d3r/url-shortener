@@ -1,2 +1,14 @@
 <h1>Urls#new</h1>
 <p>Find me in app/views/urls/new.html.erb</p>
+        <%= form_with( model: @url , local: true) do |f| %>
+
+        <%= render 'shared/error_messages' %>
+
+        <%= f.label :original, "URL" %>
+        <%= f.text_field :original, class: "form-control" %>
+
+        <%= f.label :name , "Custom Link" %>
+        <%= f.text_field :name, class: "form-control" %>
+
+        <%= f.submit "Create Short", class:"btn btn-primary"%>
+        <% end %>
