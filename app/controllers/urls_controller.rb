@@ -7,7 +7,6 @@ class UrlsController < ApplicationController
   def create
     @url = Url.new(user_params)
     @url.short = url_shorten(@url)
-    debugger
     if @url.save
       flash[:success] = "Shorten Url Created Successfully"
       redirect_to @url.short
@@ -19,12 +18,6 @@ class UrlsController < ApplicationController
   def show
     url = Url.find_by(name:params[:name])
     redirect_to url.original
-  end
-
-  def edit
-  end
-
-  def update
   end
 end
 
